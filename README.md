@@ -10,7 +10,7 @@
 
 
 ## 内容目录
-	
+
 - React/JSX代码规范
   - [文件与组件命名](#文件与组件命名)
   - [组件声明](#组件声明)
@@ -54,7 +54,7 @@
 
 
 ### 组件声明
-  - 使用class与extends关键字。不使用React.createClass方法。需要导出的组件直接在class关键字前使用export default。
+  - 使用 class 与 extends 关键字。不使用 React.createClass 方法。需要导出的组件直接在 class 关键字前使用export default。
     ```javascript
     // bad
     export default React.createClass({
@@ -245,19 +245,20 @@
   - 按如下方式定义propTypes, defaultProps, contextTypes等  
 
   ```javascript
-  import React, { Component, PropTypes } from 'react';
-  
-  const propTypes = {
-    id: PropTypes.number.isRequired,
-    url: PropTypes.string.isRequired,
-    text: PropTypes.string,
-  };
-  
-  const defaultProps = {
-    text: 'Hello World',
-  };
+  import React, { Component } from 'react';
+  import PropTypes from 'prop-types';
   
   class Link extends Component {
+    static propTypes = {
+      id: PropTypes.number.isRequired,
+      url: PropTypes.string.isRequired,
+      text: PropTypes.string,
+    };
+
+    static defaultProps = {
+      text: 'Hello World',
+    };
+
     static methodsAreOk() {
       return true;
     }
@@ -267,10 +268,16 @@
     }
   }
   
-  Link.propTypes = propTypes;
-  Link.defaultProps = defaultProps;
-  
   export default Link;
+  ```
+
+  - 样式始终放在文件末尾：
+  ```js
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+    },
+  });
   ```
 
 **[⬆ 回到目录](#内容目录)**
