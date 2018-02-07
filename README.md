@@ -42,9 +42,12 @@
     // bad
     import Footer from './Component/Footer/FooterView'
 
-    // good
+    // bad
     import Footer from './Component/Footer/Footer'
-
+    
+    // bad
+    import Footer from './Component/Footer/index'
+    
     // good
     import Footer from './Footer'
     ```
